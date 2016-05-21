@@ -4,6 +4,7 @@ opt = {
 	binfilename = '/home/rotmanmi/Data/GoogleNews-vectors-negative300.bin',
 	outfilename = '/home/rotmanmi/Data/word2vec.t7'
 }
+
 local w2vutils = {}
 if not paths.filep(opt.outfilename) then
 	w2vutils = require('bintot7.lua')
@@ -11,7 +12,6 @@ else
 	w2vutils = torch.load(opt.outfilename)
 	print('Done reading word2vec data.')
 end
-
 
 w2vutils.distance = function (self,vec,k)
 	local k = k or 1	
